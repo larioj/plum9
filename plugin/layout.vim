@@ -1,5 +1,9 @@
 vim9script
 
+class GroupedList
+  groups: list<list<number>>
+endclass
+
 def IsWithinBounds(idx: number, lst: list<any>): bool
   return idx >= 0 && idx < len(lst)
 enddef

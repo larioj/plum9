@@ -6,30 +6,6 @@ def GetWindow(alias: any): number
   return win_getid(winnr(alias))
 enddef
 
-def Divide(numerator: number, denominator: number): list<number>
-  var div = numerator / denominator
-  var rem = numerator % denominator
-  var result = []
-  for i in range(denominator)
-    var amount = div + (i < rem ? 1 : 0)
-    add(result, amount)
-  endfor
-  return result
-enddef
-
-class Layout
-  this.has_explorer: bool
-  this.explorer_width: number
-  this.min_window_width: number
-  this.stack_widths: list<number>
-  def new(has_explorer: bool = true, explorer_width: number = 30, min_window_width: number = 80)
-    this.explorer_width = explorer_width
-    this.min_window_width = min_window_width
-    const stack_count = &columns / min_window_width
-    const available_columns = has_explorer ? &columns - explorer_width : &columns
-    this.stack_widths = Divide(available_columns, stack_count)
-  enddef
-endclass
 
 
 
