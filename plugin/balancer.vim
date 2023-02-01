@@ -1,17 +1,6 @@
 vim9script
 
-def Find(items: list<any>, Pred: func(any): bool, start: number, direction: number = 1): number
-  var i = start
-  while i >= 0 && i < len(items)
-    if Pred(items[i])
-      return i
-    endif
-    i += direction
-  endwhile
-  return -1
-enddef
-
-class GroupList
+export class Balancer
   this.items: list<number>
   this.sizes: list<number>
   this.OnMove: function(number, number, number, number)

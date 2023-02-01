@@ -1,17 +1,5 @@
 vim9script
 
-def Partition(items: number, parts: number): list<number>
-  const min_amount = items / parts
-  const remainder = items % parts
-  var partitions = []
-  for i in range(parts)
-    var amount = min_amount + (i < remainder ? 1 : 0)
-    add(partitions, amount)
-  endfor
-  return partitions
-enddef
-
-
 class Partitioner
   this.total_width: number
   this.explorer_width: number

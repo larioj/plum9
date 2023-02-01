@@ -2,15 +2,6 @@ vim9script
 
 const EXPLORER_FILETYPE = 'nerdtree'
 
-def GetWindow(alias: any): number
-  return win_getid(winnr(alias))
-enddef
-
-
-
-
-
-
 export class WinMan
   def AfterOpen()
     const prev_window = GetWindow('#')
