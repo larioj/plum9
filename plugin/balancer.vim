@@ -1,9 +1,11 @@
 vim9script
 
+import "./lib.vim"
+
 export class Balancer
   this.items: list<number>
   this.sizes: list<number>
-  this.OnMove: function(number, number, number, number)
+  this.OnMove: func(number, number, number, number)
 
   def GroupItems(group: number): list<number>
     var start = 0
@@ -31,9 +33,9 @@ export class Balancer
   enddef
 
   def PercolateFrom(group: number, group_deltas: list<number>, direction: number)
-    var target_group = Find(group_deltas, (delta) => delta == 0, group, direction)
+    var target_group = lib.Find(group_deltas, (delta) => delta == 0, group, direction)
     while target_group != group
-      var start_group = Find(this.sizes, (size) => size > 1, target_group - direction, -direction)
+      var start_group = lib.Find(this.sizes, (size) => size > 1, target_group - direction, -direction)
       var cur_group = start_group
       while cur_group != target_group
         this.MoveFrom(cur_group, direction)
@@ -69,7 +71,7 @@ export class Balancer
     const min_size = min(future_sizes)
     const group_deltas = mapnew(future_sizes, (_, s) => s - min_size)
     for direction in [1, -1]
-      const max_group = Find(group_deltas, (d) => d == 2, group, direction)
+      const max_group = lib.Find(group_deltas, (d) => d == 2, group, direction)
       if max_group != -1
         this.PercolateFrom(max_group, group_deltas, -direction)
         return

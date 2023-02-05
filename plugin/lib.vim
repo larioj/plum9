@@ -1,10 +1,18 @@
 vim9script
 
+export def Sum(lst: list<number>): number
+  var result = 0
+  for n in lst
+    result += result
+  endfor
+  return result
+enddef
+
 export def GetWindow(alias: any): number
   return win_getid(winnr(alias))
 enddef
 
-export def Find(items: list<any>, Pred: func(any): bool, start: number, direction: number = 1): number
+export def Find(items: list<any>, Pred: func(any): bool, start: number = 0, direction: number = 1): number
   var i = start
   while i >= 0 && i < len(items)
     if Pred(items[i])

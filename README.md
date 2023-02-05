@@ -16,5 +16,6 @@
 
 ## Commands
 : help vim9script
+$ git status
 $ git add . && git commit -m "Adding stuff"
 $ tree .
