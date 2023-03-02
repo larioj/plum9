@@ -74,7 +74,7 @@ def CloseIfEmpty(winid: number, status: number, wait: bool = true)
   endif
   const bufcontent = trim(join(getbufline(bufnr, 1, '$'), "\n"))
   if status == 0 && len(bufcontent) == 0
-    exe bufnr .. ' bwipe!'
+    exe 'bwipeout! ' .. bufnr
   endif
 enddef
 

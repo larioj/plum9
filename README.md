@@ -11,4 +11,6 @@
   bar
 % git add . && git commit -m "more" && git push
 % echo hello
+% git diff
+$ echo
 ```
