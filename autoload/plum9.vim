@@ -67,14 +67,16 @@ def ReadShellCommand(): string
   return Normalize(join(lines, "\n"))
 enddef
 
-def CloseIfEmpty(winid: number, status: number, wait: bool = true)
+def CloseIfEmpty(winid: number, status: number, is_term: bool = true)
   const bufnr = winbufnr(winid)
-  if wait
+  if is_term
     term_wait(bufnr, 1000)
   endif
   const bufcontent = trim(join(getbufline(bufnr, 1, '$'), "\n"))
   if status == 0 && len(bufcontent) == 0
     exe 'bwipeout! ' .. bufnr
+  elseif !is_term
+    appendbufline(bufnr, line('$'), printf('Job Exited with status [%n]', status))
   endif
 enddef
 
