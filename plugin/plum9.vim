@@ -99,3 +99,9 @@ g:plum9_terminal = {
   'IsMatch': () => libterm.ReadShellCommand()[ : 1] == '$ ',
   'Execute': () => libterm.Terminal()
 }
+
+g:plum9_mac_url = {
+  'name': 'Open Url on Mac',
+  'IsMatch': () => trim(lib.ReadFile()) =~# '\v^https?://.+$',
+  'Execute': () => job_start(['open', trim(lib.ReadFile())])
+}
