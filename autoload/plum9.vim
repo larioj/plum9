@@ -17,14 +17,14 @@ def ReadVisualSelection(): string
   return join(lines, "\n")
 enddef
 
-def ReadFile()
+def ReadFile(): string
   if InVisualMode()
     return ReadVisualSelection()
   endif
   return expand('<cfile>')
 enddef
 
-def ReadLine()
+def ReadLine(): string
   if InVisualMode()
     return ReadVisualSelection()
   endif
