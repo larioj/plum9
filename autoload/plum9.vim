@@ -104,7 +104,7 @@ def OpenScratchBuffer(name: string)
   execute 'file ' .. printf('[%x] %s', localtime(), name)
 enddef
 
-def Job(exp: string = trim(ReadShellCommand()[2 : ]))
+def JobStart(exp: string = trim(ReadShellCommand()[2 : ]))
   const name = exp[ : 30] .. (len(exp) > 30 ? '...' : '')
   const cwd = getcwd()
   $vimfile = expand('%')
@@ -179,7 +179,7 @@ export def Job(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Job',
     'IsMatch': () => ReadShellCommand()[ : 1] == '% ',
-    'Execute': () => Job()
+    'Execute': () => JobStart()
   }
 enddef
 
