@@ -28,8 +28,8 @@ export def g:Plum9(trigger_mode: string = 'n', show_menu: bool = false)
     actions[1].Execute()
     return
   endif
-  const prompt = join(mapnew(actions, (i, a) => i .. ': ' .. a.name), "\n") .. "\n"
-  const nr = str2nr(input(prompt))
+  const options = mapnew(actions, (i, a) => i .. ': ' .. a.name)
+  const nr = str2nr(inputlist(options))
   actions[nr].Execute()
 enddef
 
