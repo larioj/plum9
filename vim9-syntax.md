@@ -1,3 +1,0 @@
-# Vim9 Syntax
-
-
