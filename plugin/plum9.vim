@@ -29,7 +29,7 @@ export def g:Plum9(trigger_mode: string = 'n', show_menu: bool = false)
     return
   endif
   const options = mapnew(actions, (i, a) => i .. ': ' .. a.name)
-  const nr = str2nr(inputlist(options))
+  const nr = inputlist(options)
   actions[nr].Execute()
 enddef
 
