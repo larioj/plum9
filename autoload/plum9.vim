@@ -55,7 +55,7 @@ def ReadShellCommand(): string
     add(lines, getline(end))
     end += 1
   endwhile
-  if lines[-1][-5 : ] == '<<EOF' || lines[-1][-7 : ] != "<<'EOF'"
+  if lines[-1][-5 : ] == '<<EOF' || lines[-1][-7 : ] == "<<'EOF'"
     while end <= line('$')
       add(lines, getline(end))
       end += 1

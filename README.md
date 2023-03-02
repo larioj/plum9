@@ -10,4 +10,4 @@
    foo \
   bar
 % git add . && git commit -m "fix" && git push
-```
+
