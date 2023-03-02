@@ -19,9 +19,9 @@ enddef
 
 def ReadFile(): string
   if InVisualMode()
-    return ReadVisualSelection()
+    return expand(ReadVisualSelection())
   endif
-  return expand('<cfile>')
+  return expand(expand('<cfile>'))
 enddef
 
 def ReadLine(): string

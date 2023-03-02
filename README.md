@@ -28,3 +28,5 @@ let g:plum9_actions = [
 % git diff
 % echo
 ```
+
+- $HOME/.vimrc
