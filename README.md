@@ -6,7 +6,6 @@
 - plugin/lib.vim
 - autoload/plum9.vim
 
-
 % echo hello \
    foo \
   bar
