@@ -2,3 +2,10 @@
 
 ## Files
 - plugin/plum9.vim
+- plugin/libterm.vim
+- plugin/lib.vim
+
+
+% echo hello \
+   foo \
+  bar
