@@ -78,7 +78,7 @@ def CloseIfEmpty(winid: number, status: number, wait: bool = true)
   endif
 enddef
 
-def Terminal(exp: string = trim(ReadShellCommand()[2 : ]))
+def TerminalStart(exp: string = trim(ReadShellCommand()[2 : ]))
   const name = exp[ : 30] .. (len(exp) > 30 ? '...' : '')
   const open_cmd = get(g:, 'plum9_open_cmd', 'split')
   const cwd = getcwd()
@@ -187,7 +187,6 @@ export def Terminal(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Term',
     'IsMatch': () => ReadShellCommand()[ : 1] == '$ ',
-    'Execute': () => Terminal()
+    'Execute': () => TerminalStart()
   }
 enddef
-
