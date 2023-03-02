@@ -76,7 +76,7 @@ def CloseIfEmpty(winid: number, status: number, is_term: bool = true)
   if status == 0 && len(bufcontent) == 0
     exe 'bwipeout! ' .. bufnr
   elseif !is_term
-    appendbufline(bufnr, line('$'), printf('Job Exited with status [%n]', status))
+    appendbufline(bufnr, line('$'), printf('Job Exited with status [%s]', status))
   endif
 enddef
 
