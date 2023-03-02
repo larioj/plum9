@@ -3,6 +3,7 @@
 ## Files
 - plugin/plum9.vim
 - autoload/plum9.vim
+- $HOME/.vimrc
 
 ## Configuration
 ```
@@ -10,10 +11,10 @@ let g:plum9_actions = [
       \ g:plum9#Execute(),
       \ g:plum9#Job(),
       \ g:plum9#Terminal(),
-      \ g:plum9#MacUrl()
+      \ g:plum9#MacUrl(),
       \ g:plum9#OpenFile(),
       \ g:plum9#OpenDir(),
-      \ g:plum9#ChangeDir(),
+      \ g:plum9#ChangeDir()
       \ ]
 ```
 
