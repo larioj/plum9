@@ -3,7 +3,7 @@ vim9script
 import '../plugin/lib.vim'
 import '../plugin/libterm.vim'
 
-export def plum9#OpenFile(): dict<any>
+export def OpenFile(): dict<any>
   return  {
     'name': 'Open File',
     'IsMatch': () => filereadable(lib.ReadFile()),
@@ -14,7 +14,7 @@ export def plum9#OpenFile(): dict<any>
   }
 enddef
 
-export def plum9#ChangeDir(): dict<any>
+export def ChangeDir(): dict<any>
   return {
     'name': 'Change Directory',
     'IsMatch': () => isdirectory(lib.ReadFile()),
@@ -25,7 +25,7 @@ export def plum9#ChangeDir(): dict<any>
   }
 enddef
 
-export def plum9#OpenDir(): dict<any>
+export def OpenDir(): dict<any>
   return {
     'name': 'Open Directory',
     'IsMatch': () => isdirectory(lib.ReadFile()),
@@ -35,7 +35,7 @@ export def plum9#OpenDir(): dict<any>
   }
 enddef
 
-export def plum9#Execute(): dict<any>
+export def Execute(): dict<any>
   return {
     'name': 'Execute Vim Cmd',
     'IsMatch': () => trim(lib.ReadLine())[ : 1] == ': ',
@@ -45,7 +45,7 @@ export def plum9#Execute(): dict<any>
   }
 enddef
 
-export def plum9#Job(): dict<any>
+export def Job(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Job',
     'IsMatch': () => libterm.ReadShellCommand()[ : 1] == '% ',
@@ -53,7 +53,7 @@ export def plum9#Job(): dict<any>
   }
 enddef
 
-export def plum9#Terminal(): dict<any>
+export def Terminal(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Term',
     'IsMatch': () => libterm.ReadShellCommand()[ : 1] == '$ ',
@@ -61,7 +61,7 @@ export def plum9#Terminal(): dict<any>
   }
 enddef
 
-export def plum9#MacUrl(): dict<any>
+export def MacUrl(): dict<any>
   return {
     'name': 'Open Url on Mac',
     'IsMatch': () => trim(lib.ReadFile()) =~# '\v^https?://.+$',
