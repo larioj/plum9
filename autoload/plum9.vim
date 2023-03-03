@@ -192,3 +192,11 @@ export def Terminal(): dict<any>
     'Execute': () => TerminalStart()
   }
 enddef
+
+export def GoToDiff(): dict<any>
+  return {
+    'name': 'Go To Diff [Requires vlmarek/DiffGoFile]',
+    'IsMatch': () => getline(0)[ : 5] == 'diff ',
+    'Execute': () => DiffGoFile('n')
+  }
+enddef

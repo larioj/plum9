@@ -8,6 +8,7 @@
 ## Configuration
 ```
 let g:plum9_actions = [
+      \ g:plum9#GoToDiff(), " Requires vlmarek/DiffGoFile
       \ g:plum9#Execute(),
       \ g:plum9#Job(),
       \ g:plum9#Terminal(),
@@ -27,6 +28,9 @@ let g:plum9_actions = [
 % echo hello
 % git status
 % git diff
+% set -ex; FL=$(mktemp) && git diff > $FL
+% mktemp
 % echo
 $ echo $HOME
+$ git diff
 ```
