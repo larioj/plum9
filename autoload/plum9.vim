@@ -197,6 +197,9 @@ export def GoToDiff(): dict<any>
   return {
     'name': 'Go To Diff [Requires vlmarek/DiffGoFile]',
     'IsMatch': () => getline(1)[ : 4] == 'diff ',
-    'Execute': () => g:DiffGoFile('n')
+    'Execute': () => {
+      execute g:plum9_open_cmd
+      g:DiffGoFile('n')
+    }
   }
 enddef

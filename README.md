@@ -33,8 +33,5 @@ let g:plum9_actions = [
 % echo
 $ echo $HOME
 $ git diff
-
 : PlugUpdate
-
-
 ```
