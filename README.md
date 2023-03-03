@@ -8,7 +8,7 @@
 ## Configuration
 ```
 let g:plum9_actions = [
-      \ g:plum9#GoToDiff(), " Requires vlmarek/DiffGoFile
+      \ g:plum9#GoToDiff(),
       \ g:plum9#Execute(),
       \ g:plum9#Job(),
       \ g:plum9#Terminal(),
