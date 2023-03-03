@@ -17,20 +17,17 @@ export def g:Plum9(trigger_mode: string = 'n', show_menu: bool = false)
       echom 'plum9 action [' .. action.name .. '] failed'
     endtry
   endfor
-  if len(actions) == 0
-    return
-  endif
-  if len(actions) == 1 || !show_menu
-    actions[0].Execute()
-    return
-  endif
-  if len(actions) == 2 && show_menu
-    actions[1].Execute()
+  if !show_menu
+    if len(actions) > 0
+      actions[0].Execute()
+    endif
     return
   endif
   const options = mapnew(actions, (i, a) => i .. ': ' .. a.name)
   const nr = inputlist(options)
-  actions[nr].Execute()
+  if nr >= 0 && nr < len(actions)
+    actions[nr].Execute()
+  endif
 enddef
 
 if g:plum9_enable_mouse_bindings
