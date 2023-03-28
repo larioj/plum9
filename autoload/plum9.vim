@@ -181,7 +181,7 @@ export def Job(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Job',
     'IsMatch': () => ReadShellCommand()[ : 1] == '% ',
-    'Execute': () => g:JobStart()
+    'Execute': () => JobStart()
   }
 enddef
 
@@ -189,7 +189,7 @@ export def Terminal(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Term',
     'IsMatch': () => ReadShellCommand()[ : 1] == '$ ',
-    'Execute': () => g:TerminalStart()
+    'Execute': () => TerminalStart()
   }
 enddef
 
