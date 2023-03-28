@@ -80,7 +80,7 @@ def CloseIfEmpty(winid: number, status: number, is_term: bool = true)
   endif
 enddef
 
-def TerminalStart(exp: string = trim(ReadShellCommand()[2 : ]))
+export def g:TerminalStart(exp: string = trim(ReadShellCommand()[2 : ]))
   const name = exp[ : 30] .. (len(exp) > 30 ? '...' : '')
   const open_cmd = get(g:, 'plum9_open_cmd', 'split')
   const cwd = getcwd()
@@ -106,7 +106,7 @@ def OpenScratchBuffer(name: string)
   execute 'file ' .. printf('[%x] %s', localtime(), name)
 enddef
 
-def JobStart(exp: string = trim(ReadShellCommand()[2 : ]))
+export def g:JobStart(exp: string = trim(ReadShellCommand()[2 : ]))
   const name = exp[ : 30] .. (len(exp) > 30 ? '...' : '')
   const cwd = getcwd()
   $vimfile = expand('%')
@@ -181,7 +181,7 @@ export def Job(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Job',
     'IsMatch': () => ReadShellCommand()[ : 1] == '% ',
-    'Execute': () => JobStart()
+    'Execute': () => g:JobStart()
   }
 enddef
 
@@ -189,7 +189,7 @@ export def Terminal(): dict<any>
   return {
     'name': 'Execute Shell Cmd In Vim Term',
     'IsMatch': () => ReadShellCommand()[ : 1] == '$ ',
-    'Execute': () => TerminalStart()
+    'Execute': () => g:TerminalStart()
   }
 enddef
 
