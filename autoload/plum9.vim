@@ -31,6 +31,13 @@ def ReadLine(): string
   return getline('.')
 enddef
 
+def ReadWord(): string
+  if InVisualMode()
+    return ReadVisualSelection()
+  endif
+  return expand('<cword>')
+enddef
+
 def Normalize(cmd: string): string
   var first_parts = []
   var rest = []
@@ -201,5 +208,13 @@ export def GoToDiff(): dict<any>
       execute g:plum9_open_cmd
       g:DiffGoFile('n')
     }
+  }
+enddef
+
+export def GitGrep(): dict<any>
+  return {
+    'name': 'git grep <word>',
+    'IsMatch': () => trim(system('git rev-parse --is-inside-work-tree 2>/dev/null')) == 'true',
+    'Execute': () => JobStart('git grep ' . ReadWord())
   }
 enddef

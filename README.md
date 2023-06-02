@@ -35,6 +35,6 @@ $ echo $HOME
 $ git diff
 : PlugUpdate
 
-
+$ git grep GoToDiff
 
 ```
