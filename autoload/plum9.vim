@@ -215,6 +215,6 @@ export def GitGrep(): dict<any>
   return {
     'name': 'git grep <word>',
     'IsMatch': () => trim(system('git rev-parse --is-inside-work-tree 2>/dev/null')) == 'true',
-    'Execute': () => JobStart('git grep ' . ReadWord())
+    'Execute': () => JobStart('git grep ' .. ReadWord())
   }
 enddef
